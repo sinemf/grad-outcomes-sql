@@ -1,0 +1,5 @@
+INTERVIEW_NOTES.md
+data/
+grad_outcomes.db
+__pycache__/
+.DS_Store
