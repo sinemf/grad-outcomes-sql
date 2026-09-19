@@ -10,6 +10,14 @@ it into a normalized SQLite star schema (one fact table, eight dimension
 tables, 4.2M facts after dropping suppressed cells) and answers eight
 questions in pure SQL using joins, views, CTEs, and window functions.
 
+![Top undergraduate fields by median income](charts/top_fields_income.png)
+
+![Income two vs five years after graduation by credential](charts/credential_payoff.png)
+
+![Cohort trend in real early-career income](charts/cohort_trend.png)
+
+![Gender pay gap by field](charts/gender_gap.png)
+
 ## Pipeline
 
 1. `build_db.py`: two-pass chunked ETL. Pass 1 scans the CSV for dimension
@@ -20,6 +28,8 @@ questions in pure SQL using joins, views, CTEs, and window functions.
    named analytical queries.
 3. `run_analysis.py`: executes every named query, prints results, and saves
    each to `results/*.csv` (which also feed a dashboard).
+4. `make_charts.py`: renders the charts above from the results CSVs
+   (matplotlib, colorblind-safe palette, constant 2024 dollars throughout).
 
 ## Selected findings (2017 cohort unless noted)
 

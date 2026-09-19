@@ -57,7 +57,7 @@ for col, (table, _) in DIMS.items():
         # Split the CIP code out of labels like "Engineering [14]"
         rows = []
         for v, i in lookups[col].items():
-            m = re.match(r"^(.*?)\s*\[([\d.]+)\]$", v)
+            m = re.match(r"^(.*?)\s*\[([\w.]+)\]$", v)
             name, code = (m.group(1), m.group(2)) if m else (v, None)
             rows.append((i, v, name, code))
         con.execute(f"CREATE TABLE {table} (id INTEGER PRIMARY KEY, label TEXT,"
